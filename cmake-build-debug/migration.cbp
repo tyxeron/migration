@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="migration"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="migration">
+				<Option output="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/migration" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/json_cpp"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/lib_migration/trusted"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/libb64"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/libb64/include"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/libb64/include/b64"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/trusted"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/untrusted"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sample_app/src/enclave"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_la"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_la/trusted"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_la/untrusted"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_net/src"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_nrt_ra"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_tke"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_uke"/>
+					<Add directory="/opt/intel/sgxsdk/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 migration"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="migration/fast">
+				<Option output="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/migration" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/json_cpp"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/lib_migration/trusted"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/libb64"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/libb64/include"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/libb64/include/b64"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/trusted"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/untrusted"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sample_app/src/enclave"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_la"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_la/trusted"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_la/untrusted"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_net/src"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_nrt_ra"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_tke"/>
+					<Add directory="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_uke"/>
+					<Add directory="/opt/intel/sgxsdk/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 migration/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/json_cpp/json-cpp.hpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/lib_migration/trusted/marshalling.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/lib_migration/trusted/marshalling.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/lib_migration/trusted/migration_counters.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/lib_migration/trusted/migration_library.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/lib_migration/trusted/migration_library.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/lib_migration/trusted/migration_library_internal.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/lib_migration/trusted/migration_library_internal.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/lib_migration/trusted/migration_seal.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/libb64/include/b64/cdecode.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/libb64/include/b64/cencode.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/libb64/include/b64/decode.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/libs/libb64/include/b64/encode.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/trusted/migration_enclave.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/trusted/migration_enclave.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/untrusted/TcpConnection.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/untrusted/TcpConnection.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/untrusted/TcpServer.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/untrusted/TcpServer.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/untrusted/ra.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/untrusted/ra.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/untrusted/sample.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/migration_enclave/untrusted/sample.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sample_app/src/app/main.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sample_app/src/enclave/enclave.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sample_app/src/enclave/enclave.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_la/la_dh.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_la/trusted/tla.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_la/trusted/tla.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_la/untrusted/ula.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_la/untrusted/ula.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_net/src/network_common.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_net/src/network_common.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_net/src/network_types.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_nrt_ra/nrt_ra.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_nrt_ra/nrt_ra.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_tke/nrt_key_exchange.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_tke/nrt_tke.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_tke/tke_nrt.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_uke/nrt_ukey_exchange.h">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/sgx-utils/libs/lib_uke/uke_nrt.cpp">
+			<Option target="migration"/>
+		</Unit>
+		<Unit filename="/home/joel/Programming/Bachelorthesis/ROTE/ROTE/migration/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
