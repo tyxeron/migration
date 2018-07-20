@@ -60,6 +60,9 @@ MIGRATION_STATUS sgx_unseal_migratable_data(const sgx_sealed_data_t *p_sealed_da
         uint8_t *p_decrypted_text,
         uint32_t *p_decrypted_text_length);
 
+
+MIGRATION_STATUS sgx_seal_migratable_data_tfs(const char * filename, uint8_t * data_to_seal, size_t data_to_seal_len);
+MIGRATION_STATUS sgx_unseal_migratable_data_tfs(const char * filename, uint8_t * unsealed_data, size_t unsealed_data_len);
 /*
  * Operation codes for message exchange between ME and MLib.
  * All codes are from the enclave's POV so the flow is:

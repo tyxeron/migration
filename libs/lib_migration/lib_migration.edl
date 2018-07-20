@@ -16,6 +16,7 @@
 /* migration_library.edl - Top EDL file. */
 
 enclave {
+    from "sgx_tprotected_fs.edl" import *;  //Trusted file system
     from "sgx_tae_service.edl" import *; // for pse sessions, not for LA
     from "la.edl" import *;
 

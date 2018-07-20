@@ -16,9 +16,11 @@
 /*
     Migratable seal functions
 */
-#include "sgx_tseal.h"   // For seal defines
-#include "sgx_tcrypto.h" // For de-,encryption
-#include "sgx_trts.h"    // For is_within_enclave functions
+#include <cerrno>
+#include "sgx_tseal.h"          // For seal defines
+#include "sgx_tcrypto.h"        // For de-,encryption
+#include "sgx_trts.h"           // For is_within_enclave functions
+#include <sgx_tprotected_fs.h>  // for trusted file system, used in seal/unseal
 #include "string.h"
 
 #include "migration_library.h"
@@ -209,4 +211,103 @@ MIGRATION_STATUS sgx_unseal_migratable_data(const sgx_sealed_data_t *p_sealed_da
     //migrate_log("[ENCLAVE] [MLib] [UNSEAL_DATA] Unsealed migratable data with Mac size %u and cleartext size %u\n", additional_MACtext_length, encrypt_text_length);
 
     return err;
+}
+
+
+int file_check(SGX_FILE *data_stream, const char *action) {
+    int32_t err_code = sgx_ferror(data_stream);
+    if (err_code == SGX_SUCCESS)
+        return 0;
+    else if (err_code == SGX_ERROR_FILE_BAD_STATUS) {
+        migrate_log("[ENCLAVE] [MLib] [FILE_CHECK] Error while %s the sealed data: The file is in bad status. Trying to fix...", action);
+
+        //Try to fix the bad status error
+        sgx_clearerr(data_stream);
+        if (!(err_code = sgx_ferror(data_stream)) == SGX_SUCCESS) {
+            migrate_log("[ENCLAVE] [MLib] [FILE_CHECK] File Error occurred while trying to fix a corrupt file. Error Code = %d ", err_code);
+            return err_code;
+        }
+    } else {
+        migrate_log("[ENCLAVE] [MLib] [FILE_CHECK] File Error occurred while %s file. Error Code = %d", err_code);
+        return err_code;
+    }
+
+    return 0;
+}
+
+
+MIGRATION_STATUS sgx_seal_migratable_data_tfs(const char * filename, uint8_t * data_to_seal, size_t data_to_seal_len){
+
+    SGX_FILE *data = sgx_fopen(filename, "w",
+                               reinterpret_cast<sgx_key_128bit_t const *>(MIGR_LIBRARY_DATA.MIGR_SEALING_KEY));
+    if (data == nullptr) {
+        migrate_log("[ENCLAVE] [MLib] [SEAL_DATA] Error while opening the sealed data: Errno code %d", errno);
+        return SGX_ERROR_UNEXPECTED;
+    }
+
+    //Seal the new content and write to disk
+    migrate_log("[ENCLAVE] [MLib] [SEAL_DATA] Begin writing sealed data to disk...");
+    migrate_log("[ENCLAVE] [MLib] [SEAL_DATA] Length of data to be sealed: %d", data_to_seal_len);
+
+    if (sgx_fwrite(data_to_seal, data_to_seal_len, 1, data) != 1 && file_check(data, "writing to"))
+        return SGX_ERROR_UNEXPECTED;
+
+    migrate_log("[ENCLAVE] [MLib] [SEAL_DATA] Wrote %d bytes", data_to_seal_len);
+
+
+    //Close the file
+    if (sgx_fclose(data) && file_check(data, "closing"))
+        return SGX_ERROR_UNEXPECTED;
+
+    migrate_log("[ENCLAVE] [MLib] [SEAL_DATA] Closed the sealed data file");
+
+    return SGX_SUCCESS;
+}
+
+MIGRATION_STATUS sgx_unseal_migratable_data_tfs(const char * filename, uint8_t * unsealed_data, size_t unsealed_data_len){
+    SGX_FILE *data = sgx_fopen(filename, "r",
+                               reinterpret_cast<sgx_key_128bit_t const *>(MIGR_LIBRARY_DATA.MIGR_SEALING_KEY));
+    if (data == nullptr) {
+        migrate_log("[ENCLAVE] [MLib] [UNSEAL_DATA] ERROR %s", strerror(errno));
+        migrate_log("[ENCLAVE] [MLib] [UNSEAL_DATA] Error while opening the sealed data. Errno Code %d", errno);
+        return SGX_ERROR_UNEXPECTED;
+    }
+
+    //Seal the new content and write to disk
+    migrate_log("[ENCLAVE] [MLib] [UNSEAL_DATA] Begin reading sealed data from disk...");
+
+    // Obtain file size
+    sgx_fseek(data, 0, SEEK_END);
+    int64_t size_ = sgx_ftell(data);
+
+
+    if (size_ < 0) {
+        sgx_fclose(data);
+        migrate_log("[ENCLAVE] [MLib] [UNSEAL_DATA] Error while reading the sealed data. Invalid file size");
+        return SGX_ERROR_UNEXPECTED;
+    } else {
+        unsealed_data_len = (size_t) size_;
+    }
+    sgx_fseek(data, 0, SEEK_SET);
+
+    migrate_log("[ENCLAVE] [MLib] [UNSEAL_DATA] Length of sealed data: %d", unsealed_data_len);
+
+    //Allocate enough memory to hold the sealed data
+    unsealed_data = (uint8_t *) malloc(unsealed_data_len);
+
+    // Copy the file content into the structure
+    size_t res = sgx_fread(unsealed_data, 1, unsealed_data_len, data);
+    if (res != unsealed_data_len) {
+        sgx_fclose(data);
+        migrate_log("[ENCLAVE] [MLib] [UNSEAL_DATA] Error while reading the whole sealed data: Errno code %d", errno);
+        return SGX_ERROR_UNEXPECTED;
+    }
+
+    migrate_log("[ENCLAVE] [MLib] [UNSEAL_DATA] Read %d bytes", unsealed_data_len);
+
+    //Close the file
+    if (sgx_fclose(data) && file_check(data, "closing"))
+        return SGX_ERROR_UNEXPECTED;
+
+    migrate_log("[ENCLAVE] [MLib] [UNSEAL_DATA] Closed the sealed data file");
 }
