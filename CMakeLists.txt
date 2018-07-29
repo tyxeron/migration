@@ -1,0 +1,64 @@
+cmake_minimum_required(VERSION 3.10)
+project(migration)
+
+set(CMAKE_CXX_STANDARD 11)
+
+include_directories(libs/json_cpp)
+include_directories(libs/lib_migration/trusted)
+include_directories(libs/libb64)
+include_directories(libs/libb64/include)
+include_directories(libs/libb64/include/b64)
+include_directories(migration_enclave/trusted)
+include_directories(migration_enclave/untrusted)
+include_directories(sample_app/src/enclave)
+include_directories(sgx-utils/libs/lib_la)
+include_directories(sgx-utils/libs/lib_la/trusted)
+include_directories(sgx-utils/libs/lib_la/untrusted)
+include_directories(sgx-utils/libs/lib_net/src)
+include_directories(sgx-utils/libs/lib_nrt_ra)
+include_directories(sgx-utils/libs/lib_tke)
+include_directories(sgx-utils/libs/lib_uke)
+include_directories(/opt/intel/sgxsdk/include/)
+
+add_executable(migration
+        libs/json_cpp/json-cpp.hpp
+        libs/lib_migration/trusted/marshalling.cpp
+        libs/lib_migration/trusted/marshalling.h
+        libs/lib_migration/trusted/migration_counters.cpp
+        libs/lib_migration/trusted/migration_library.cpp
+        libs/lib_migration/trusted/migration_library.h
+        libs/lib_migration/trusted/migration_library_internal.cpp
+        libs/lib_migration/trusted/migration_library_internal.h
+        libs/lib_migration/trusted/migration_seal.cpp
+        libs/libb64/include/b64/cdecode.h
+        libs/libb64/include/b64/cencode.h
+        libs/libb64/include/b64/decode.h
+        libs/libb64/include/b64/encode.h
+        migration_enclave/trusted/migration_enclave.cpp
+        migration_enclave/trusted/migration_enclave.h
+        migration_enclave/untrusted/ra.cpp
+        migration_enclave/untrusted/ra.h
+        migration_enclave/untrusted/sample.cpp
+        migration_enclave/untrusted/sample.h
+        migration_enclave/untrusted/TcpConnection.cpp
+        migration_enclave/untrusted/TcpConnection.h
+        migration_enclave/untrusted/TcpServer.cpp
+        migration_enclave/untrusted/TcpServer.h
+        sample_app/src/app/main.cpp
+        sample_app/src/enclave/enclave.cpp
+        sample_app/src/enclave/enclave.h
+        sgx-utils/libs/lib_la/trusted/tla.cpp
+        sgx-utils/libs/lib_la/trusted/tla.h
+        sgx-utils/libs/lib_la/untrusted/ula.cpp
+        sgx-utils/libs/lib_la/untrusted/ula.h
+        sgx-utils/libs/lib_la/la_dh.h
+        sgx-utils/libs/lib_net/src/network_common.cpp
+        sgx-utils/libs/lib_net/src/network_common.h
+        sgx-utils/libs/lib_net/src/network_types.h
+        sgx-utils/libs/lib_nrt_ra/nrt_ra.cpp
+        sgx-utils/libs/lib_nrt_ra/nrt_ra.h
+        sgx-utils/libs/lib_tke/nrt_key_exchange.h
+        sgx-utils/libs/lib_tke/nrt_tke.h
+        sgx-utils/libs/lib_tke/tke_nrt.cpp
+        sgx-utils/libs/lib_uke/nrt_ukey_exchange.h
+        sgx-utils/libs/lib_uke/uke_nrt.cpp)
